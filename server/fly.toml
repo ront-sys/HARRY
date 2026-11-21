@@ -1,0 +1,26 @@
+# Deploy: fly launch --no-deploy --copy-config && fly volumes create harry_data --size 1 && fly secrets set ANTHROPIC_API_KEY=... && fly deploy
+app = "harry-server"
+primary_region = "iad"
+
+[build]
+
+[env]
+  PORT = "8787"
+  HARRY_DB = "/data/harry.db"
+
+[[mounts]]
+  source = "harry_data"
+  destination = "/data"
+
+[http_service]
+  internal_port = 8787
+  force_https = true
+  auto_stop_machines = "off"
+  min_machines_running = 1
+
+[[http_service.checks]]
+  grace_period = "10s"
+  interval = "30s"
+  method = "GET"
+  path = "/health"
+  timeout = "5s"

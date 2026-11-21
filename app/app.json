@@ -1,0 +1,63 @@
+{
+  "expo": {
+    "name": "HARRY",
+    "slug": "harry",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "harry",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#3B2F28",
+    "ios": {
+      "bundleIdentifier": "com.harryapp.ios",
+      "supportsTablet": false,
+      "icon": "./assets/images/icon.png",
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "HARRY uses Face ID to keep your conversations private.",
+        "NSMicrophoneUsageDescription": "HARRY uses the microphone so you can talk to Harry out loud.",
+        "NSSpeechRecognitionUsageDescription": "HARRY turns your voice into text so Harry can understand you."
+      },
+      "privacyManifests": {
+        "NSPrivacyTracking": false,
+        "NSPrivacyTrackingDomains": [],
+        "NSPrivacyCollectedDataTypes": []
+      }
+    },
+    "android": {
+      "package": "com.harryapp.android",
+      "adaptiveIcon": {
+        "backgroundColor": "#4A3B32",
+        "foregroundImage": "./assets/images/android-icon-foreground.png"
+      }
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      "expo-font",
+      "expo-web-browser",
+      [
+        "expo-local-authentication",
+        { "faceIDPermission": "HARRY uses Face ID to keep your conversations private." }
+      ],
+      [
+        "expo-speech-recognition",
+        {
+          "microphonePermission": "HARRY uses the microphone so you can talk to Harry out loud.",
+          "speechRecognitionPermission": "HARRY turns your voice into text so Harry can understand you."
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#3B2F28",
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 120
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}

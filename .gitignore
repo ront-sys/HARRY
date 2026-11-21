@@ -1,0 +1,14 @@
+node_modules/
+.expo/
+dist/
+app/ios/
+app/android/
+*.db
+*.db-*
+server/data/
+.env
+.env.*
+!.env.example
+*.p8
+*.p12
+*.mobileprovision
